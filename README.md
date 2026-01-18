@@ -23,12 +23,13 @@ if not gemini_api_key:
     raise RuntimeError("GEMINI_API_KEY not set")
 
 MODEL = "gemini-2.5-flash"
+PROMPT = "Write a one-sentence bedtime story about a robot who is trying to learn how to dream."
 
-client = genai.Client(api_key=gemini_api_key)
+client = genai.Client()
 
 response = client.models.generate_content(
     model=MODEL,
-    contents="Write a one-sentence bedtime story about a robot who is trying to learn how to dream."
+    contents=PROMPT
 )
 
 print(response.text)
