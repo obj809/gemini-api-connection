@@ -84,9 +84,9 @@ pip install google-genai python-dotenv
 
 
 7) Create a .env file in the project root
-
+```env
 GEMINI_API_KEY=your_api_key_here
-
+```
 
 8) Run main.py
 ```bash
