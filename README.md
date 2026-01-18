@@ -2,48 +2,37 @@
 
 ## Description
 
-A Python quickstart guide for getting started with the **Google Gemini API** using the official `google-genai` SDK.
-
----
+A Python quickstart guide for getting started with the Google Gemini API.
 
 ## Requirements
 
 - Python 3.10+
 - A Google Gemini API key
 
----
-
 ## main.py
 
 ```python
+import os
 from dotenv import load_dotenv
 from google import genai
 
 load_dotenv()
 
-MODEL = "gemini-1.5-pro"
+gemini_api_key = os.getenv("GEMINI_API_KEY")
+if not gemini_api_key:
+    raise RuntimeError("GEMINI_API_KEY not set")
 
-# The client reads GEMINI_API_KEY from the environment
-client = genai.Client()
+MODEL = "gemini-2.5-flash"
+
+client = genai.Client(api_key=gemini_api_key)
 
 response = client.models.generate_content(
     model=MODEL,
-    contents="Explain how AI works in a few words."
+    contents="Write a one-sentence bedtime story about a robot who is trying to learn how to dream."
 )
 
 print(response.text)
-
 ```
-
-
-
-
-
-
-
-
-
-
 
 ## Build Steps
 
@@ -94,24 +83,19 @@ pip install google-genai python-dotenv
 ```
 
 
-6. Create a .env file in the project root
+7) Create a .env file in the project root
 
 GEMINI_API_KEY=your_api_key_here
 
 
-7) Run main.py
+8) Run main.py
 ```bash
 python main.py
 ```
 
 
-# Links
+## Links
 
-- **[Gemini API Models](https://ai.google.dev/gemini-api/docs/models)**  
-  Overview of all Gemini models and their capabilities.
+- [Gemini API Models](https://ai.google.dev/gemini-api/docs/models)
 
-- **[Gemini API Quickstart](https://ai.google.dev/gemini-api/docs/quickstart)**  
-  Official guide for getting started with the Gemini API.
-
-- **[google-genai SDK (Python)](https://pypi.org/project/google-genai/)**  
-  Python SDK used to interact with the Gemini API.
+- [Gemini API Quickstart](https://ai.google.dev/gemini-api/docs/quickstart)
