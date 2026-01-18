@@ -12,6 +12,10 @@ source venv/bin/activate
 
 pip freeze > requirements.txt
 
+## install requirements
+
+pip install -r requirements.txt
+
 ## run main
 
 python main.py
