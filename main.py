@@ -11,7 +11,7 @@ client = genai.Client()
 
 response = client.models.generate_content(
     model=MODEL,
-    contents="Explain how AI works in a few words."
+    contents="Write a one-sentence bedtime story about a robot who is trying to learn how to dream."
 )
 
 print(response.text)
